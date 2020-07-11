@@ -1,7 +1,8 @@
 {
   "name": "relay-connections-deconstructor",
+  "description": "A Relay connection (edges and nodes) deconstructor.",
   "author": "Aryan Jabbari <aryanjabbari@gmail.com>",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -37,5 +38,20 @@
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.6"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/AryanJ-NYC/relay-connections-deconstructor/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AryanJ-NYC/relay-connections-deconstructor"
+  },
+  "keywords": [
+    "relay",
+    "edge",
+    "node",
+    "connection",
+    "flatten",
+    "deconstruct"
+  ]
 }
