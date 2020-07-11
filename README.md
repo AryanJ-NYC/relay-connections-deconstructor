@@ -10,6 +10,16 @@ Welp, I wrote a quick little function to flatten out said edges and nodes and ed
 
 ## Installation
 
+```bash
+yarn add relay-connections-deconstructor
+```
+
+or
+
+```bash
+npm install relay-connections-deconstructor
+```
+
 ## Usage
 
 ```typescript
@@ -53,7 +63,7 @@ console.log(deconstructedObject);
 //   friends: [
 //     {
 //       name: 'Han Solo',
-//       cursor: 'Y3Vyc29yMg==',Gi
+//       cursor: 'Y3Vyc29yMg==',
 //     },
 //     {
 //       name: 'Leia Organa',
