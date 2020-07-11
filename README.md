@@ -56,7 +56,7 @@ const responseFollowingRelaySpec = {
   },
 };
 
-const deconstructedObject = relayConnectionToArray(responseFollowingRelaySpec);
+const deconstructedObject = relayDeconstructor(responseFollowingRelaySpec);
 console.log(deconstructedObject);
 // 👇
 // {
@@ -76,7 +76,7 @@ console.log(deconstructedObject);
 //   ],
 // };
 
-const justTheFriends = relayConnectionToArray(responseFollowingRelaySpec.friends);
+const justTheFriends = relayDeconstructor(responseFollowingRelaySpec.friends);
 console.log(justTheFriends);
 // 👇
 // [
