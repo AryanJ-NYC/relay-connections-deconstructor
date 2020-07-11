@@ -1,27 +1,68 @@
-# TSDX Bootstrap
+# Relay Connections Deconstructor
 
-This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
+![npm](https://img.shields.io/npm/v/relay-connections-deconstructor?style=plastic)
 
-## Local Development
+## Description
 
-Below is a list of commands you will probably find useful.
+Not all of us love the Relay spec but sometimes we find ourselves wrestling with edges and nodes and edges and nodes and edges and...
 
-### `npm start` or `yarn start`
+Welp, I wrote a quick little function to flatten out said edges and nodes and edges and nodes.
 
-Runs the project in development/watch mode. Your project will be rebuilt upon changes. TSDX has a special logger for you convenience. Error messages are pretty printed and formatted for compatibility VS Code's Problems tab.
+## Installation
 
-<img src="https://user-images.githubusercontent.com/4060187/52168303-574d3a00-26f6-11e9-9f3b-71dbec9ebfcb.gif" width="600" />
+## Usage
 
-Your library will be rebuilt if you make edits.
+```typescript
+import { relayDeconstructor } from 'relay-connections-deconstructor';
 
-### `npm run build` or `yarn build`
+const responseFollowingRelaySpec = {
+  friends: {
+    totalCount: 3,
+    edges: [
+      {
+        node: {
+          name: 'Han Solo',
+        },
+        cursor: 'Y3Vyc29yMg==',
+      },
+      {
+        node: {
+          name: 'Leia Organa',
+        },
+        cursor: 'Y3Vyc29yMw==',
+      },
+    ],
+    pageInfo: {
+      endCursor: 'Y3Vyc29yMw==',
+      hasNextPage: false,
+    },
+  },
+  planets: {
+    totalCount: 2,
+    edges: [
+      { node: { name: 'Pluto' }, cursor: 'Y3Vyc29yMg==' },
+      { node: { name: 'Mars' }, cursor: 'Y3Vyc29yMw==' },
+    ],
+  },
+};
 
-Bundles the package to the `dist` folder.
-The package is optimized and bundled with Rollup into multiple formats (CommonJS, UMD, and ES Module).
-
-<img src="https://user-images.githubusercontent.com/4060187/52168322-a98e5b00-26f6-11e9-8cf6-222d716b75ef.gif" width="600" />
-
-### `npm test` or `yarn test`
-
-Runs the test watcher (Jest) in an interactive mode.
-By default, runs tests related to files changed since the last commit.
+const deconstructedObject = relayConnectionToArray(responseFollowingRelaySpec);
+console.log(deconstructedObject);
+// 👇
+// {
+//   friends: [
+//     {
+//       name: 'Han Solo',
+//       cursor: 'Y3Vyc29yMg==',Gi
+//     },
+//     {
+//       name: 'Leia Organa',
+//       cursor: 'Y3Vyc29yMw==',
+//     },
+//   ],
+//   planets: [
+//     { cursor: 'Y3Vyc29yMg==', name: 'Pluto' },
+//     { cursor: 'Y3Vyc29yMw==', name: 'Mars' },
+//   ],
+// };
+```

@@ -1,5 +1,7 @@
 {
-  "version": "0.1.0",
+  "name": "relay-connections-deconstructor",
+  "author": "Aryan Jabbari <aryanjabbari@gmail.com>",
+  "version": "0.1.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -24,13 +26,11 @@
     }
   },
   "prettier": {
-    "printWidth": 80,
+    "printWidth": 100,
     "semi": true,
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "relay-connection-to-array",
-  "author": "Aryan Jabbari <aryanjabbari@gmail.com>",
   "module": "dist/relay-connection-to-array.esm.js",
   "devDependencies": {
     "husky": "^4.2.5",

@@ -1,4 +1,4 @@
-export const relayConnectionToArray = (relayObj: any): any => {
+export const relayDeconstructor = (relayObj: any): any => {
   if (typeof relayObj !== 'object') return relayObj;
 
   const keyValuePairs: [string, any][] = Object.entries(relayObj);
@@ -9,11 +9,15 @@ export const relayConnectionToArray = (relayObj: any): any => {
       toReturn[key] = [
         ...value.edges.map((edge: any) => {
           const { node, ...theRest } = edge;
-          return { ...node, ...theRest };
+          if (!node) {
+            return theRest;
+          }
+          const deconstructedNode = relayDeconstructor(node);
+          return { ...deconstructedNode, ...theRest };
         }),
       ];
     } else {
-      toReturn[key] = relayConnectionToArray(value);
+      toReturn[key] = relayDeconstructor(value);
     }
   }
 
