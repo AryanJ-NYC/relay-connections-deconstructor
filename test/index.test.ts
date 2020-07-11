@@ -179,6 +179,7 @@ describe('relayConnectionToArray', () => {
     const expected = {
       data: {
         hero: {
+          name: 'R2-D2',
           friends: [
             {
               name: 'Han Solo',

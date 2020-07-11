@@ -30,7 +30,7 @@
     "trailingComma": "es5"
   },
   "name": "relay-connection-to-array",
-  "author": "Aryan Jabbari",
+  "author": "Aryan Jabbari <aryanjabbari@gmail.com>",
   "module": "dist/relay-connection-to-array.esm.js",
   "devDependencies": {
     "husky": "^4.2.5",

@@ -1,4 +1,6 @@
 export const relayConnectionToArray = (relayObj: any): any => {
+  if (typeof relayObj !== 'object') return relayObj;
+
   const keyValuePairs: [string, any][] = Object.entries(relayObj);
   const toReturn: any = {};
 
@@ -11,7 +13,7 @@ export const relayConnectionToArray = (relayObj: any): any => {
         }),
       ];
     } else {
-      return { [key]: relayConnectionToArray(value) };
+      toReturn[key] = relayConnectionToArray(value);
     }
   }
 
