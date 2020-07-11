@@ -93,4 +93,60 @@ describe('relayConnectionToArray', () => {
 
     expect(relayConnectionToArray(connectionToTransform)).toEqual(expected);
   });
+
+  test('works with data wrapper around connections', () => {
+    const connectionToTransform = {
+      data: {
+        friends: {
+          totalCount: 3,
+          edges: [
+            {
+              node: {
+                name: 'Han Solo',
+              },
+              cursor: 'Y3Vyc29yMg==',
+            },
+            {
+              node: {
+                name: 'Leia Organa',
+              },
+              cursor: 'Y3Vyc29yMw==',
+            },
+          ],
+          pageInfo: {
+            endCursor: 'Y3Vyc29yMw==',
+            hasNextPage: false,
+          },
+        },
+        planets: {
+          totalCount: 2,
+          edges: [
+            { node: { name: 'Pluto' }, cursor: 'Y3Vyc29yMg==' },
+            { node: { name: 'Mars' }, cursor: 'Y3Vyc29yMw==' },
+          ],
+        },
+      },
+    };
+
+    const expected = {
+      data: {
+        friends: [
+          {
+            name: 'Han Solo',
+            cursor: 'Y3Vyc29yMg==',
+          },
+          {
+            name: 'Leia Organa',
+            cursor: 'Y3Vyc29yMw==',
+          },
+        ],
+        planets: [
+          { cursor: 'Y3Vyc29yMg==', name: 'Pluto' },
+          { cursor: 'Y3Vyc29yMw==', name: 'Mars' },
+        ],
+      },
+    };
+
+    expect(relayConnectionToArray(connectionToTransform)).toEqual(expected);
+  });
 });
