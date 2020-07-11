@@ -75,4 +75,18 @@ console.log(deconstructedObject);
 //     { cursor: 'Y3Vyc29yMw==', name: 'Mars' },
 //   ],
 // };
+
+const justTheFriends = relayConnectionToArray(responseFollowingRelaySpec.friends);
+console.log(justTheFriends);
+// 👇
+// [
+//   {
+//     name: 'Han Solo',
+//     cursor: 'Y3Vyc29yMg==',
+//   },
+//   {
+//     name: 'Leia Organa',
+//     cursor: 'Y3Vyc29yMw==',
+//   },
+// ]
 ```

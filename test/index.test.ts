@@ -1,7 +1,44 @@
 import { relayDeconstructor } from '../src';
 
 describe('relayConnectionToArray', () => {
-  test('single connnection', () => {
+  test('single connection at root', () => {
+    const connectionToTransform = {
+      totalCount: 3,
+      edges: [
+        {
+          node: {
+            name: 'Han Solo',
+          },
+          cursor: 'Y3Vyc29yMg==',
+        },
+        {
+          node: {
+            name: 'Leia Organa',
+          },
+          cursor: 'Y3Vyc29yMw==',
+        },
+      ],
+      pageInfo: {
+        endCursor: 'Y3Vyc29yMw==',
+        hasNextPage: false,
+      },
+    };
+
+    const expected = [
+      {
+        name: 'Han Solo',
+        cursor: 'Y3Vyc29yMg==',
+      },
+      {
+        name: 'Leia Organa',
+        cursor: 'Y3Vyc29yMw==',
+      },
+    ];
+
+    expect(relayDeconstructor(connectionToTransform)).toEqual(expected);
+  });
+
+  test('single connnection one level deep', () => {
     const connectionToTransform = {
       friends: {
         totalCount: 3,
