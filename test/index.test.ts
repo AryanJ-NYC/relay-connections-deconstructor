@@ -149,4 +149,50 @@ describe('relayConnectionToArray', () => {
 
     expect(relayConnectionToArray(connectionToTransform)).toEqual(expected);
   });
+
+  test('works with connections multiple layers deep', () => {
+    const connectionToTransform = {
+      data: {
+        hero: {
+          name: 'R2-D2',
+          friends: {
+            totalCount: 3,
+            edges: [
+              {
+                node: {
+                  name: 'Han Solo',
+                },
+                cursor: 'Y3Vyc29yMg==',
+              },
+              {
+                node: {
+                  name: 'Leia Organa',
+                },
+                cursor: 'Y3Vyc29yMw==',
+              },
+            ],
+          },
+        },
+      },
+    };
+
+    const expected = {
+      data: {
+        hero: {
+          friends: [
+            {
+              name: 'Han Solo',
+              cursor: 'Y3Vyc29yMg==',
+            },
+            {
+              name: 'Leia Organa',
+              cursor: 'Y3Vyc29yMw==',
+            },
+          ],
+        },
+      },
+    };
+
+    expect(relayConnectionToArray(connectionToTransform)).toEqual(expected);
+  });
 });
