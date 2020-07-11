@@ -1,6 +1,6 @@
 # Relay Connections Deconstructor
 
-![npm](https://img.shields.io/npm/v/relay-connections-deconstructor?style=plastic)
+[![npm](https://img.shields.io/npm/v/relay-connections-deconstructor?style=plastic)](https://www.npmjs.com/package/relay-connections-deconstructor)
 
 ## Description
 
