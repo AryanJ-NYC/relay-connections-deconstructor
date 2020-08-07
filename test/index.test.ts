@@ -349,4 +349,16 @@ describe('relayConnectionToArray', () => {
     expect(relayDeconstructor(1)).toEqual(1);
     expect(relayDeconstructor('some fun string')).toEqual('some fun string');
   });
+
+  test('list that does not have edges or nodes remains the same', () => {
+    const profileFriends = {
+      data: {
+        profile: {
+          tinyFriendsList: ['Rey'],
+        },
+      },
+    };
+
+    expect(relayDeconstructor(profileFriends)).toEqual(profileFriends);
+  });
 });
