@@ -16,6 +16,10 @@ export const relayDeconstructor = (relayObj: any): any => {
     ];
   }
 
+  if (Array.isArray(relayObj)) {
+    return relayObj;
+  }
+
   Object.entries(relayObj).forEach(([key, value]) => {
     result[key] = relayDeconstructor(value);
   });
