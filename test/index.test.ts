@@ -361,4 +361,16 @@ describe('relayConnectionToArray', () => {
 
     expect(relayDeconstructor(profileFriends)).toEqual(profileFriends);
   });
+
+  test('works with null field', () => {
+    const profileFriends = {
+      data: {
+        profile: {
+          tinyFriendsList: null,
+        },
+      },
+    };
+
+    expect(relayDeconstructor(profileFriends)).toEqual(profileFriends);
+  });
 });
