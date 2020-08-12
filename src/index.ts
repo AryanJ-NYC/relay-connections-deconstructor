@@ -1,5 +1,7 @@
 export const relayDeconstructor = (relayObj: any): any => {
-  if (!relayObj || typeof relayObj !== 'object' || Array.isArray(relayObj)) return relayObj;
+  if (!relayObj || typeof relayObj !== 'object' || Array.isArray(relayObj)) {
+    return relayObj;
+  }
 
   const result: any = {};
 
