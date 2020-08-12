@@ -1,5 +1,5 @@
 export const relayDeconstructor = (relayObj: any): any => {
-  if (typeof relayObj !== 'object') return relayObj;
+  if (!relayObj || typeof relayObj !== 'object' || Array.isArray(relayObj)) return relayObj;
 
   const result: any = {};
 
@@ -14,10 +14,6 @@ export const relayDeconstructor = (relayObj: any): any => {
         return { ...deconstructedNode, ...theRest };
       }),
     ];
-  }
-
-  if (Array.isArray(relayObj)) {
-    return relayObj;
   }
 
   Object.entries(relayObj).forEach(([key, value]) => {
