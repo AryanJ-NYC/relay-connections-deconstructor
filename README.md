@@ -4,7 +4,7 @@
 
 ## Description
 
-Not all of us love the Relay spec but sometimes we find ourselves wrestling with edges and nodes and edges and nodes and edges and...
+Not all of us love the Relay spec but sometimes we need to wrestle with a third-party service that uses it. We find ourselves wrestling with edges and nodes and edges and nodes and edges and...
 
 Welp, I wrote a quick little function to flatten out said edges and nodes and edges and nodes.
 
